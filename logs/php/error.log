@@ -44,3 +44,6 @@ Stack trace:
 [31-Aug-2022 04:54:32 UTC] PHP   2. require() C:\Users\HR\Local Sites\fictional-university\app\public\index.php:17
 [31-Aug-2022 04:54:32 UTC] PHP   3. require_once() C:\Users\HR\Local Sites\fictional-university\app\public\wp-blog-header.php:19
 [31-Aug-2022 04:54:32 UTC] PHP   4. include() C:\Users\HR\Local Sites\fictional-university\app\public\wp-includes\template-loader.php:106
+[31-Aug-2022 05:07:38 UTC] PHP Parse error:  syntax error, unexpected 'while' (T_WHILE), expecting ';' or ',' in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\single-program.php on line 51
+[31-Aug-2022 05:07:46 UTC] PHP Parse error:  syntax error, unexpected '.' in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\single-program.php on line 49
+[31-Aug-2022 05:09:40 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ';' or ',' in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\single-program.php on line 50
