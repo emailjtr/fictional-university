@@ -37,3 +37,4 @@ Stack trace:
 #4 C:\Users\HR\Local Sites\fictional-university\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\HR\\Loc...')
 #5 C:\Users\HR\Local Sites\fictional-university\app\public\wp-blog-header.php(19): require_once('C:\\Users\\HR\\Loc...')
 #6 C:\Users\HR\Local Sites\fictional-university\app\public\i in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\header.php on line 21
+[31-Aug-2022 04:32:09 UTC] PHP Parse error:  syntax error, unexpected '}' in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\functions.php on line 25
