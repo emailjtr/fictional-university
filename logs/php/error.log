@@ -90,3 +90,7 @@ Stack trace:
 #6 C:\Users\HR\Local Sites\fictional-university\app\public\wp-blog-header.php(13): require_once('C:\\Users\\HR\\Loc...')
 #7  in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\functions.php on line 18
 [01-Sep-2022 05:13:25 UTC] PHP Parse error:  syntax error, unexpected '}' in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\functions.php on line 22
+[01-Sep-2022 05:41:53 UTC] PHP Parse error:  syntax error, unexpected '}' in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\functions.php on line 10
+[01-Sep-2022 05:50:26 UTC] PHP Parse error:  syntax error, unexpected ''subtitle'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\page.php on line 8
+[01-Sep-2022 05:51:56 UTC] PHP Parse error:  syntax error, unexpected ''subtitle'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\page.php on line 8
+[01-Sep-2022 05:52:23 UTC] PHP Parse error:  syntax error, unexpected ''subtitle'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\page.php on line 8
