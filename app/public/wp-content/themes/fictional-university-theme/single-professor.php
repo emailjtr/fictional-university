@@ -21,7 +21,7 @@
         <div class="generic-content">
           <div class="row group">
             <div class="one-third">
-              <?php the_post_thumbnail(); ?>
+              <?php the_post_thumbnail('professorPortrait'); ?>
             </div>
               <?php the_content(); ?>
             <div class="two-thirds">
