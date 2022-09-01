@@ -47,3 +47,45 @@ Stack trace:
 [31-Aug-2022 05:07:38 UTC] PHP Parse error:  syntax error, unexpected 'while' (T_WHILE), expecting ';' or ',' in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\single-program.php on line 51
 [31-Aug-2022 05:07:46 UTC] PHP Parse error:  syntax error, unexpected '.' in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\single-program.php on line 49
 [31-Aug-2022 05:09:40 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ';' or ',' in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\single-program.php on line 50
+[01-Sep-2022 03:00:11 UTC] PHP Warning:  Use of undefined constant add - assumed 'add' (this will throw an Error in a future version of PHP) in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\functions.php on line 18
+[01-Sep-2022 03:00:11 UTC] PHP Stack trace:
+[01-Sep-2022 03:00:11 UTC] PHP   1. {main}() C:\Users\HR\Local Sites\fictional-university\app\public\index.php:0
+[01-Sep-2022 03:00:11 UTC] PHP   2. require() C:\Users\HR\Local Sites\fictional-university\app\public\index.php:17
+[01-Sep-2022 03:00:11 UTC] PHP   3. require_once() C:\Users\HR\Local Sites\fictional-university\app\public\wp-blog-header.php:13
+[01-Sep-2022 03:00:11 UTC] PHP   4. require_once() C:\Users\HR\Local Sites\fictional-university\app\public\wp-load.php:50
+[01-Sep-2022 03:00:11 UTC] PHP   5. require_once() C:\Users\HR\Local Sites\fictional-university\app\public\wp-config.php:91
+[01-Sep-2022 03:00:11 UTC] PHP   6. do_action() C:\Users\HR\Local Sites\fictional-university\app\public\wp-settings.php:576
+[01-Sep-2022 03:00:11 UTC] PHP   7. WP_Hook->do_action() C:\Users\HR\Local Sites\fictional-university\app\public\wp-includes\plugin.php:476
+[01-Sep-2022 03:00:11 UTC] PHP   8. WP_Hook->apply_filters() C:\Users\HR\Local Sites\fictional-university\app\public\wp-includes\class-wp-hook.php:331
+[01-Sep-2022 03:00:11 UTC] PHP   9. university_features() C:\Users\HR\Local Sites\fictional-university\app\public\wp-includes\class-wp-hook.php:307
+[01-Sep-2022 03:00:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function theme_support() in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\functions.php:18
+Stack trace:
+#0 C:\Users\HR\Local Sites\fictional-university\app\public\wp-includes\class-wp-hook.php(307): university_features('')
+#1 C:\Users\HR\Local Sites\fictional-university\app\public\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\HR\Local Sites\fictional-university\app\public\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 C:\Users\HR\Local Sites\fictional-university\app\public\wp-settings.php(576): do_action('after_setup_the...')
+#4 C:\Users\HR\Local Sites\fictional-university\app\public\wp-config.php(91): require_once('C:\\Users\\HR\\Loc...')
+#5 C:\Users\HR\Local Sites\fictional-university\app\public\wp-load.php(50): require_once('C:\\Users\\HR\\Loc...')
+#6 C:\Users\HR\Local Sites\fictional-university\app\public\wp-blog-header.php(13): require_once('C:\\Users\\HR\\Loc...')
+#7  in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\functions.php on line 18
+[01-Sep-2022 03:00:11 UTC] PHP Warning:  Use of undefined constant add - assumed 'add' (this will throw an Error in a future version of PHP) in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\functions.php on line 18
+[01-Sep-2022 03:00:11 UTC] PHP Stack trace:
+[01-Sep-2022 03:00:11 UTC] PHP   1. {main}() C:\Users\HR\Local Sites\fictional-university\app\public\index.php:0
+[01-Sep-2022 03:00:11 UTC] PHP   2. require() C:\Users\HR\Local Sites\fictional-university\app\public\index.php:17
+[01-Sep-2022 03:00:11 UTC] PHP   3. require_once() C:\Users\HR\Local Sites\fictional-university\app\public\wp-blog-header.php:13
+[01-Sep-2022 03:00:11 UTC] PHP   4. require_once() C:\Users\HR\Local Sites\fictional-university\app\public\wp-load.php:50
+[01-Sep-2022 03:00:11 UTC] PHP   5. require_once() C:\Users\HR\Local Sites\fictional-university\app\public\wp-config.php:91
+[01-Sep-2022 03:00:11 UTC] PHP   6. do_action() C:\Users\HR\Local Sites\fictional-university\app\public\wp-settings.php:576
+[01-Sep-2022 03:00:11 UTC] PHP   7. WP_Hook->do_action() C:\Users\HR\Local Sites\fictional-university\app\public\wp-includes\plugin.php:476
+[01-Sep-2022 03:00:11 UTC] PHP   8. WP_Hook->apply_filters() C:\Users\HR\Local Sites\fictional-university\app\public\wp-includes\class-wp-hook.php:331
+[01-Sep-2022 03:00:11 UTC] PHP   9. university_features() C:\Users\HR\Local Sites\fictional-university\app\public\wp-includes\class-wp-hook.php:307
+[01-Sep-2022 03:00:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function theme_support() in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\functions.php:18
+Stack trace:
+#0 C:\Users\HR\Local Sites\fictional-university\app\public\wp-includes\class-wp-hook.php(307): university_features('')
+#1 C:\Users\HR\Local Sites\fictional-university\app\public\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\HR\Local Sites\fictional-university\app\public\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 C:\Users\HR\Local Sites\fictional-university\app\public\wp-settings.php(576): do_action('after_setup_the...')
+#4 C:\Users\HR\Local Sites\fictional-university\app\public\wp-config.php(91): require_once('C:\\Users\\HR\\Loc...')
+#5 C:\Users\HR\Local Sites\fictional-university\app\public\wp-load.php(50): require_once('C:\\Users\\HR\\Loc...')
+#6 C:\Users\HR\Local Sites\fictional-university\app\public\wp-blog-header.php(13): require_once('C:\\Users\\HR\\Loc...')
+#7  in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\functions.php on line 18

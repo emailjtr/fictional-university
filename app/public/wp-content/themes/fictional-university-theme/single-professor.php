@@ -18,7 +18,17 @@
 
 
 
-        <div class="generic-content"><?php the_content(); ?></div>
+        <div class="generic-content">
+          <div class="row group">
+            <div class="one-third">
+              <?php the_post_thumbnail(); ?>
+            </div>
+              <?php the_content(); ?>
+            <div class="two-thirds">
+
+            </div>
+          </div>
+        </div>
 
         <?php
           $relatedPrograms = get_field('related_programs');
