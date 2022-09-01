@@ -1,22 +1,21 @@
 <?php
 
 function pageBanner($args = NULL) {
-  
-  if (!$args['title']) {
+    if(!$args['title']) {
     $args['title'] = get_the_title();
-  }
- 
-  if (!$args['subtitle']) {
-    $args['subtitle'] = get_field('page_banner_subtitle');
-  }
- 
-  if (!$args['photo']) {
-    if (get_field('page_banner_background_image') AND !is_archive() AND !is_home() ) {
-      $args['photo'] = get_field('page_banner_background_image')['sizes']['pageBanner'];
-    } else {
-      $args['photo'] = get_theme_file_uri('/images/ocean.jpg');
     }
-  }
+
+    if(!$args['subtitle']) {
+    $args['subtitle'] = get_field('page_banner_subtitle');
+    }
+
+    if(!$args['photo']) {
+        if(get_field('page_banner_bg_image') AND !is_archive() AND !is_home()) {
+        $args['photo'] = get_field('page_banner_bg_image')['sizes']['pageBanner'];
+        } else {
+            $args['photo'] = get_theme_file_uri('/images/ocean.jpg');
+        }
+    }
 
     ?>
     <div class="page-banner">
