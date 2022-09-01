@@ -89,3 +89,4 @@ Stack trace:
 #5 C:\Users\HR\Local Sites\fictional-university\app\public\wp-load.php(50): require_once('C:\\Users\\HR\\Loc...')
 #6 C:\Users\HR\Local Sites\fictional-university\app\public\wp-blog-header.php(13): require_once('C:\\Users\\HR\\Loc...')
 #7  in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\functions.php on line 18
+[01-Sep-2022 05:13:25 UTC] PHP Parse error:  syntax error, unexpected '}' in C:\Users\HR\Local Sites\fictional-university\app\public\wp-content\themes\fictional-university-theme\functions.php on line 22
