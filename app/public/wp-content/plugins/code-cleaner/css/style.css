@@ -1,0 +1,186 @@
+.codecleaner-admin h2 {
+	font-size: 24px;
+	line-height: normal;
+	margin: 25px 0px 0px 0px;
+}
+
+.codecleaner-admin p.codecleaner-subheading {
+	font-size: 12px;
+	line-height: normal;
+	font-style: italic;
+	margin: 5px 0px 0px 0px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #dddddd;
+}
+
+.codecleaner-admin .switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 28px;
+  font-size: 1px;
+}
+
+.codecleaner-admin .switch input {
+  display: block;
+  margin: 0px;
+}
+
+.codecleaner-admin .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.codecleaner-admin .slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.codecleaner-admin input:checked + .slider {
+  background-color: #2196F3;
+}
+
+.codecleaner-admin input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.codecleaner-admin input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+.codecleaner-admin input[type="text"], .codecleaner-admin select, .codecleaner-admin textarea {
+  min-width: 300px;
+}
+
+.codecleaner-admin textarea {
+  resize: both;
+  min-height: 150px;
+}
+
+.codecleaner-admin .form-table th label {
+  vertical-align: top;
+}
+
+.codecleaner-admin .codecleaner-tooltip{
+  /*position: relative;*/
+  display: inline-block;
+  margin-left: 5px;
+  height: 15px;
+  width: 15px;
+  vertical-align: top;
+  text-align: center;
+  line-height: 15px;
+  font-size: 12px;
+  background: #e7e7e7;
+  color: #bbbbbb;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  text-decoration: none;
+}
+.codecleaner-admin .codecleaner-tooltip:hover {
+  background: #cccccc;
+  color:#777777;
+}
+.codecleaner-admin .codecleaner-input-wrapper {
+  white-space: nowrap;
+}
+.codecleaner-admin .codecleaner-tooltip-text-wrapper {
+  position: relative;
+  display: table-cell;
+  width: 100%;
+}
+.codecleaner-admin .codecleaner-tooltip-text-container {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  bottom: 0px;
+  left: 15px;
+  right: 0px;
+}
+.codecleaner-admin .codecleaner-tooltip-text {
+  display: inline-block;
+  background-color: #23282D;
+  color: #fff;
+  padding: 10px;
+  border-radius: 3px;
+  text-align: left;
+  font-size: 12px;
+  line-height: 20px;
+  font-style: italic;
+}
+
+.codecleaner-admin .codecleaner-tooltip-text::after {
+  content: " ";
+  position: absolute;
+  top: 10px;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+
+.codecleaner-beta {
+  background: #ED5464;
+  color: #ffffff;
+  padding: 5px;
+  vertical-align: middle;
+  font-size: 10px;
+  margin-left: 3px;
+}
+
+.codecleaner-admin p.submit, .wp-coupons-admin #codecleaner-restore {
+  margin: 0px;
+  padding: 0px;
+  float: left;
+}
+
+.codecleaner-admin p.submit .button, .codecleaner-admin #codecleaner-restore .button {
+  margin: 10px 10px 0px 0px;
+}
+
+.codecleaner-admin #codecleaner-legend {
+  float: right;
+  padding-top: 20px;
+  font-size: 12px;
+  line-height: 15px;
+  font-style: italic;
+  color: #aaaaaa;
+}
+
+.codecleaner-admin #codecleaner-tooltip-legend span {
+  display: inline-block;
+  margin-right: 5px;
+  height: 15px;
+  width: 15px;
+  vertical-align: top;
+  text-align: center;
+  line-height: 15px;
+  font-size: 12px;
+  background: #e7e7e7;
+  color: #bbbbbb;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: bold;
+}
