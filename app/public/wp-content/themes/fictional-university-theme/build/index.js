@@ -3991,85 +3991,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 
 
-class SearchObject {
-  //1. create and initiate the object
+
+class Search {
+  //describe and initiate object
   constructor() {
-    this.resultsDiv = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#search-overlay__results");
-    this.openButton = document.querySelectorAll(".js-search-trigger");
-    this.closeButton = document.querySelector(".search-overlay__close");
-    this.searchOverlay = document.querySelector(".search-overlay");
-    this.searchField = document.querySelector("#search-term");
-    this.events();
-    this.isOverlayOpen = false;
-    this.isSpinnerVisible = false;
-    this.previousValue;
-    this.typingTimer;
-  } //2. events
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "events", () => {
+      this.openButton.addEventListener('click', this.openOverlay);
+      this.closeButton.addEventListener('click', this.closeOverlay);
+      document.addEventListener('keydown', this.keyPressDispatcher);
+      this.searchField.addEventListener('keyup', this.typingLogic);
+    });
 
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "openOverlay", () => {
+      this.searchOverlay.classList.add('search-overlay--active');
+      document.querySelector('body').classList.add('body-no-scroll');
+      this.overlayOpen = true;
+    });
 
-  events() {
-    this.openButton[0].addEventListener('click', this.openOverlay.bind(this));
-    this.openButton[1].addEventListener('click', this.openOverlay.bind(this));
-    this.closeButton.addEventListener('click', this.closeOverlay.bind(this));
-    this.searchField.addEventListener('keyup', this.typingLogic.bind(this));
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on("keydown", this.keyPressDispatcher.bind(this));
-  } //3. methods (or functions)
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "closeOverlay", () => {
+      this.searchOverlay.classList.remove('search-overlay--active');
+      document.querySelector('body').classList.remove('body-no-scroll');
+      this.overlayOpen = false;
+    });
 
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "keyPressDispatcher", key => {
+      if (key.key === 's' && !this.overlayOpen && this.checkFocus(this.allInputs)) this.openOverlay();
+      if (key.key === 'Escape' && this.overlayOpen && this.checkFocus(this.allInputs)) this.closeOverlay();
+    });
 
-  typingLogic() {
-    if (this.searchField != this.previousValue) {
-      clearTimeout(this.typingTimer);
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "typingLogic", () => {
+      if (this.searchField.value != this.oldValue) {
+        clearTimeout(this.timer);
 
-      if (this.searchField) {
-        if (!this.isSpinnerVisible) {
-          this.resultsDiv.html('<div class="spinner-loader"></div>');
-          this.isSpinnerVisible = true;
+        if (this.searchField.value) {
+          if (!this.spinnerVisible) {
+            this.resultsDiv.innerHTML = '<div class="spinner-loader"></div>';
+            this.spinnerVisible = true;
+          }
+
+          this.timer = setTimeout(this.getResults, 1000);
+        } else {
+          this.resultsDiv.innerHTML = '';
+          this.spinnerVisible = false;
         }
-
-        this.typingTimer = setTimeout(this.getResults.bind(this), 1000);
-      } else {
-        this.resultsDiv.html('');
-        this.isSpinnerVisible = false;
       }
-    }
 
-    this.previousValue = this.searchField;
-  }
+      this.oldValue = this.searchField.value;
+    });
 
-  getResults() {
-    this.resultsDiv.html("Real search results here...");
-    this.isSpinnerVisible = false;
-  }
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "getResults", () => {
+      this.resultsDiv.innerHTML = 'Search Results';
+      this.spinnerVisible = false;
+    });
 
-  keyPressDispatcher(e) {
-    if (e.keyCode == 83 && !this.isOverlayOpen && !jquery__WEBPACK_IMPORTED_MODULE_0___default()("input, textarea").is(':focus')) {
-      this.openOverlay();
-    }
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "checkFocus", all => {
+      //loops through all inputs
+      for (const el of all) {
+        //checks if any of the inputs have focus
+        //returns false as soon as it finds focused elements
+        if (document.activeElement == el) return false;
+      } //else return true
 
-    if (e.keyCode == 27 && this.isOverlayOpen) {
-      this.closeOverlay();
-    }
-  }
 
-  openOverlay() {
-    this.searchOverlay.classList.add('search-overlay--active');
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()("body").addClass("body-no-scroll");
-    this.isOverlayOpen = true;
-  }
+      return true;
+    });
 
-  closeOverlay() {
-    this.searchOverlay.classList.remove('search-overlay--active');
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()("body").removeClass("body-no-scroll");
-    this.isOverlayOpen = false;
-  }
+    this.openButton = document.querySelector('.js-search-trigger');
+    this.closeButton = document.querySelector('.search-overlay__close');
+    this.searchOverlay = document.querySelector('.search-overlay');
+    this.searchField = document.getElementById('search-term');
+    this.resultsDiv = document.getElementById('search-overlay__results');
+    this.allInputs = document.querySelectorAll('input, textarea');
+    this.overlayOpen = false;
+    this.spinnerVisible = false;
+    this.timer;
+    this.oldValue;
+    this.events();
+  } //events
+
 
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SearchObject);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Search);
 
 /***/ }),
 
@@ -4092,6 +4100,33 @@ __webpack_require__.r(__webpack_exports__);
 /***/ ((module) => {
 
 module.exports = window["jQuery"];
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/defineProperty.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _defineProperty)
+/* harmony export */ });
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
 
 /***/ })
 

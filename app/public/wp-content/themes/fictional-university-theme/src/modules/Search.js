@@ -1,76 +1,87 @@
 import $ from 'jquery';
 
-class SearchObject {
-    //1. create and initiate the object
-    constructor() {
-        this.resultsDiv = $("#search-overlay__results");
-        this.openButton = document.querySelectorAll(".js-search-trigger");
-        this.closeButton = document.querySelector(".search-overlay__close");
-        this.searchOverlay = document.querySelector(".search-overlay");
-        this.searchField = document.querySelector("#search-term");
-        this.events();
-        this.isOverlayOpen = false;
-        this.isSpinnerVisible = false;
-        this.previousValue;
-        this.typingTimer;
-    }
+class Search {
+	//describe and initiate object
+	constructor(){
+		this.openButton = document.querySelector('.js-search-trigger');
+		this.closeButton = document.querySelector('.search-overlay__close');
+		this.searchOverlay = document.querySelector('.search-overlay');
+		this.searchField = document.getElementById('search-term');
+		this.resultsDiv = document.getElementById('search-overlay__results');
+		this.allInputs = document.querySelectorAll('input, textarea');
  
-    //2. events
-    events(){
-        this.openButton[0].addEventListener('click', this.openOverlay.bind(this));
-        this.openButton[1].addEventListener('click', this.openOverlay.bind(this));
-        this.closeButton.addEventListener('click', this.closeOverlay.bind(this));
-        this.searchField.addEventListener('keyup', this.typingLogic.bind(this));
-        $(document).on("keydown", this.keyPressDispatcher.bind(this));
-    }
+		this.overlayOpen = false;
+		this.spinnerVisible = false;
+		this.timer;
+		this.oldValue;
  
-    //3. methods (or functions)
-    typingLogic() {
-        if (this.searchField != this.previousValue) {
-            clearTimeout(this.typingTimer);
-
-            if (this.searchField) {
-                if (!this.isSpinnerVisible) {
-                this.resultsDiv.html('<div class="spinner-loader"></div>');
-                this.isSpinnerVisible = true;
-            }
-            this.typingTimer = setTimeout(this.getResults.bind(this), 1000);
-            } else {
-                this.resultsDiv.html('');
-                this.isSpinnerVisible = false;
-            }
-        }
-
-        this.previousValue = this.searchField;
-    }
-
-    getResults() {
-        this.resultsDiv.html("Real search results here...");
-        this.isSpinnerVisible = false;
-    }
-
-    keyPressDispatcher(e) {
-        
-        if (e.keyCode == 83 && !this.isOverlayOpen && !$("input, textarea").is(':focus')) {
-            this.openOverlay();
-        }
-
-        if (e.keyCode == 27 && this.isOverlayOpen) {
-            this.closeOverlay();
-        }
-    }
-
-    openOverlay(){
-        this.searchOverlay.classList.add('search-overlay--active');
-        $("body").addClass("body-no-scroll");
-        this.isOverlayOpen = true; 
-    }
+		this.events();
+	}
  
-    closeOverlay(){
-        this.searchOverlay.classList.remove('search-overlay--active');
-        $("body").removeClass("body-no-scroll");
-        this.isOverlayOpen = false; 
-    }
+	//events
+	events = () => {
+		this.openButton.addEventListener('click', this.openOverlay);
+		this.closeButton.addEventListener('click', this.closeOverlay);
+		document.addEventListener('keydown', this.keyPressDispatcher);
+		this.searchField.addEventListener('keyup', this.typingLogic);
+ 
+	};
+ 
+	//methods (functions)
+	openOverlay = () =>{
+		this.searchOverlay.classList.add('search-overlay--active');
+		document.querySelector('body').classList.add('body-no-scroll');
+		this.overlayOpen = true;
+	};
+ 
+	closeOverlay = () =>{
+		this.searchOverlay.classList.remove('search-overlay--active');
+		document.querySelector('body').classList.remove('body-no-scroll');
+		this.overlayOpen = false;
+	};
+ 
+	keyPressDispatcher = (key) =>{
+			if(key.key === 's' && !this.overlayOpen && this.checkFocus(this.allInputs)) this.openOverlay();
+			if(key.key === 'Escape' && this.overlayOpen && this.checkFocus(this.allInputs)) this.closeOverlay();
+	}
+ 
+	typingLogic = () =>{
+ 
+		if (this.searchField.value != this.oldValue ){
+			clearTimeout(this.timer);
+ 
+			if (this.searchField.value){
+				if(!this.spinnerVisible){
+					this.resultsDiv.innerHTML = '<div class="spinner-loader"></div>';
+					this.spinnerVisible = true;
+				}
+				this.timer = setTimeout(this.getResults, 1000);
+			}else{
+				this.resultsDiv.innerHTML = '';
+				this.spinnerVisible = false;
+			}
+			
+		}
+		
+		this.oldValue = this.searchField.value; 
+	}
+ 
+	getResults= () =>{
+		this.resultsDiv.innerHTML = 'Search Results';
+		this.spinnerVisible = false;
+	}
+ 
+	checkFocus = (all) =>{
+		//loops through all inputs
+		for (const el of all) {
+			//checks if any of the inputs have focus
+			//returns false as soon as it finds focused elements
+			if( document.activeElement == el ) return false;
+		}
+		//else return true
+		return true;
+	}
+ 
 }
  
-export default SearchObject;
+export default Search;
