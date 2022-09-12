@@ -4001,7 +4001,8 @@ class Search {
   //describe and initiate object
   constructor() {
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "events", () => {
-      this.openButton.addEventListener('click', this.openOverlay);
+      this.openButton1.addEventListener('click', this.openOverlay);
+      this.openButton2.addEventListener('click', this.openOverlay);
       this.closeButton.addEventListener('click', this.closeOverlay);
       document.addEventListener('keydown', this.keyPressDispatcher);
       this.searchField.addEventListener('keyup', this.typingLogic);
@@ -4045,13 +4046,14 @@ class Search {
     });
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "getResults", () => {
-      jquery__WEBPACK_IMPORTED_MODULE_1___default().getJSON('http://fictional-university.local/wp-json/wp/v2/posts?search=' + this.searchField.value, posts => {
+      jquery__WEBPACK_IMPORTED_MODULE_1___default().getJSON(universityData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.value, posts => {
         this.resultsDiv.innerHTML = `
 				<h2 class="search-overlay__section-title">General Information</h2>
-				<ul class="link-list min-list">
+				${posts.length ? '<ul class="link-list min-list">' : '<p>No results found</p>'}
 					${posts.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
-				</ul>
+				${posts.length ? '</ul>' : ''}
 			`;
+        this.spinnerVisible = false;
       });
     });
 
@@ -4067,7 +4069,8 @@ class Search {
       return true;
     });
 
-    this.openButton = document.querySelector('.js-search-trigger');
+    this.openButton1 = document.querySelector('.js-search-trigger');
+    this.openButton2 = document.querySelector('.search-trigger');
     this.closeButton = document.querySelector('.search-overlay__close');
     this.searchOverlay = document.querySelector('.search-overlay');
     this.searchField = document.getElementById('search-term');
