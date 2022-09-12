@@ -4045,8 +4045,9 @@ class Search {
     });
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "getResults", () => {
-      this.resultsDiv.innerHTML = 'Search Results';
-      this.spinnerVisible = false;
+      jquery__WEBPACK_IMPORTED_MODULE_1___default().getJSON('http://fictional-university.local/wp-json/wp/v2/posts?search=' + this.searchField.value, function (posts) {
+        alert(posts[0].title.rendered);
+      });
     });
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "checkFocus", all => {
