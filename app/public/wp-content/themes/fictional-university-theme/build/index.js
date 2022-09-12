@@ -4048,17 +4048,17 @@ class Search {
     });
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "getResults", () => {
-      jquery__WEBPACK_IMPORTED_MODULE_1___default().getJSON(universityData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.value, posts => {
-        jquery__WEBPACK_IMPORTED_MODULE_1___default().getJSON(universityData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.value, pages => {
-          var combinedResults = posts.concat(pages);
-          this.resultsDiv.innerHTML = `
+      jquery__WEBPACK_IMPORTED_MODULE_1___default().when(jquery__WEBPACK_IMPORTED_MODULE_1___default().getJSON(universityData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.value), jquery__WEBPACK_IMPORTED_MODULE_1___default().getJSON(universityData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.value)).then((posts, pages) => {
+        var combinedResults = posts[0].concat(pages[0]);
+        this.resultsDiv.innerHTML = `
 				<h2 class="search-overlay__section-title">General Information</h2>
 				${combinedResults.length ? '<ul class="link-list min-list">' : '<p>No results found</p>'}
 				${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
 				${combinedResults.length ? '</ul>' : ''}
 			`;
-          this.spinnerVisible = false;
-        });
+        this.spinnerVisible = false;
+      }, () => {
+        this.resultsDiv.innerHTML = '<p>Unexpected error. Try something else.</p>';
       });
     });
 
