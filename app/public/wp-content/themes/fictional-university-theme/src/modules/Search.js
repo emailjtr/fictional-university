@@ -3,6 +3,7 @@ import $ from 'jquery';
 class Search {
 	//describe and initiate object
 	constructor(){
+		this.addSearchHTML();
 		this.openButton1 = document.querySelector('.js-search-trigger');
 		this.openButton2 = document.querySelector('.search-trigger');
 		this.closeButton = document.querySelector('.search-overlay__close');
@@ -33,6 +34,8 @@ class Search {
 	openOverlay = () =>{
 		this.searchOverlay.classList.add('search-overlay--active');
 		document.querySelector('body').classList.add('body-no-scroll');
+		this.searchField.value = '';
+		setTimeout(() => this.searchField.focus(), 301)
 		this.overlayOpen = true;
 	};
  
@@ -57,7 +60,7 @@ class Search {
 					this.resultsDiv.innerHTML = '<div class="spinner-loader"></div>';
 					this.spinnerVisible = true;
 				}
-				this.timer = setTimeout(this.getResults, 1000);
+				this.timer = setTimeout(this.getResults, 750);
 			}else{
 				this.resultsDiv.innerHTML = '';
 				this.spinnerVisible = false;
@@ -90,6 +93,27 @@ class Search {
 		//else return true
 		return true;
 	}
+
+	addSearchHTML() {
+			$("body").append(`
+				<div class="search-overlay">
+				<div class="search-overlay__top">
+					<div class="container">
+					<i class="fa fa-search search-overlay__icon" aria-hidden="true"></i>
+					<input type="text" class="search-term" placeholder="Searching for something?" id="search-term" autocomplete="off">
+					<i class="fa fa-window-close search-overlay__close" aria-hidden="true"></i>
+					</div>
+				</div>
+
+				<div class="container">
+					<div id="search-overlay__results">
+					
+					</div>
+				</div>
+
+				</div>
+			`);
+		}
  
 }
  

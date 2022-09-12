@@ -4011,6 +4011,8 @@ class Search {
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "openOverlay", () => {
       this.searchOverlay.classList.add('search-overlay--active');
       document.querySelector('body').classList.add('body-no-scroll');
+      this.searchField.value = '';
+      setTimeout(() => this.searchField.focus(), 301);
       this.overlayOpen = true;
     });
 
@@ -4035,7 +4037,7 @@ class Search {
             this.spinnerVisible = true;
           }
 
-          this.timer = setTimeout(this.getResults, 1000);
+          this.timer = setTimeout(this.getResults, 750);
         } else {
           this.resultsDiv.innerHTML = '';
           this.spinnerVisible = false;
@@ -4069,6 +4071,7 @@ class Search {
       return true;
     });
 
+    this.addSearchHTML();
     this.openButton1 = document.querySelector('.js-search-trigger');
     this.openButton2 = document.querySelector('.search-trigger');
     this.closeButton = document.querySelector('.search-overlay__close');
@@ -4083,6 +4086,27 @@ class Search {
     this.events();
   } //events
 
+
+  addSearchHTML() {
+    jquery__WEBPACK_IMPORTED_MODULE_1___default()("body").append(`
+				<div class="search-overlay">
+				<div class="search-overlay__top">
+					<div class="container">
+					<i class="fa fa-search search-overlay__icon" aria-hidden="true"></i>
+					<input type="text" class="search-term" placeholder="Searching for something?" id="search-term" autocomplete="off">
+					<i class="fa fa-window-close search-overlay__close" aria-hidden="true"></i>
+					</div>
+				</div>
+
+				<div class="container">
+					<div id="search-overlay__results">
+					
+					</div>
+				</div>
+
+				</div>
+			`);
+  }
 
 }
 

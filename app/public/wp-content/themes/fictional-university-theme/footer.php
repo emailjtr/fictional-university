@@ -69,23 +69,6 @@
       </div>
     </footer>
 
-    <div class="search-overlay">
-      <div class="search-overlay__top">
-        <div class="container">
-          <i class="fa fa-search search-overlay__icon" aria-hidden="true"></i>
-          <input type="text" class="search-term" placeholder="Searching for something?" id="search-term" autocomplete="off">
-          <i class="fa fa-window-close search-overlay__close" aria-hidden="true"></i>
-        </div>
-      </div>
-
-      <div class="container">
-        <div id="search-overlay__results">
-          
-        </div>
-      </div>
-
-    </div>
-
 <?php wp_footer(); ?>
 <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>-->
 </body>
